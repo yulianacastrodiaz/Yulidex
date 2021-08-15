@@ -6,28 +6,40 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('pokemon', {
     id: {
-      type: DataTypes.UUID,
+      type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
+      validate:{
+        is: {
+          arg: /[0-9]+[A-Za-z]/,
+          msg: "el id debería contener al menos un número y una letra"
+        },
+      }
     },
     nombre: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      isInt: {
-        msg: "El nombre debería ser único. Este nombre ya existe."
-      },
       validate: {
         notNull: {
           msg: 'Por favor ingrese un nombre.'
+        },
+        isString(nombre) {
+          if ( typeof nombre !== "string") {
+            throw new Error("El nombre debería ser un string")
+          }
         }
       }
     },
     vida: {
       type: DataTypes.INTEGER,
       validate:{
-        isNumeric: true,
-        isInt: true,
+        isNumeric: {
+          msg: "Debería ser un número"
+        },
+        isInt: {
+          msg: "Debería ser un entero"
+        }
       }
     },
     fuerza: {
@@ -58,7 +70,7 @@ module.exports = (sequelize) => {
         isFloat: true,
       }
     },
-    fuerza: {
+    peso: {
       type: DataTypes.FLOAT,validate:{
         isNumeric: true,
         isFloat: true,
