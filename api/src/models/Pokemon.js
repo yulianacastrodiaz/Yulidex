@@ -16,13 +16,22 @@ module.exports = (sequelize) => {
         },
       }
     },
-    nombre: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
+      validate: {
+        notNull: {
+          msg: "El nombre no debe estar vacio"
+        },
+        isAlpha: {
+          msg: "El nombre debe ser exclusivamente caracteres alfabéticos",
+        }
+      }
     },
     vida: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate:{
         isInt: {
           msg: "Debería ser un entero"
@@ -31,6 +40,7 @@ module.exports = (sequelize) => {
     },
     fuerza: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate:{
         isInt: {
           msg: "Debería ser un entero"
@@ -39,6 +49,7 @@ module.exports = (sequelize) => {
     },
     defensa: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate:{
         isInt: {
           msg: "Debería ser un entero"
@@ -47,6 +58,7 @@ module.exports = (sequelize) => {
     },
     velocidad: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate:{
         isInt: {
           msg: "Debería ser un entero"
@@ -62,7 +74,8 @@ module.exports = (sequelize) => {
       }
     },
     peso: {
-      type: DataTypes.FLOAT,validate:{
+      type: DataTypes.FLOAT,
+      validate:{
         isFloat: {
           msg: "Debería ser un decimal"
         }
