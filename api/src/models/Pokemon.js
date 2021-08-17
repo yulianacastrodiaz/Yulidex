@@ -6,15 +6,10 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('pokemon', {
     id: {
-      type: DataTypes.STRING,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true,
-      validate:{
-        is: {
-          arg: /[0-9]+[A-Za-z]/,
-          msg: "el id debería contener al menos un número y una letra",
-        },
-      }
     },
     name: {
       type: DataTypes.STRING,
@@ -29,55 +24,67 @@ module.exports = (sequelize) => {
         }
       }
     },
-    vida: {
+    hp: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate:{
+        notNull: {
+          msg: "El hp no debe estar vacio"
+        },
         isInt: {
           msg: "Debería ser un entero"
         }
       }
     },
-    fuerza: {
+    attack: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate:{
+        notNull: {
+          msg: "El attack no debe estar vacio"
+        },
         isInt: {
           msg: "Debería ser un entero"
         }
       }
     },
-    defensa: {
+    defense: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate:{
+        notNull: {
+          msg: "La defensa no debe estra vacia"
+        },
         isInt: {
           msg: "Debería ser un entero"
         }
       }
     },
-    velocidad: {
+    speed: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate:{
+        notNull: {
+          msg: "La velocidad no debe estar vacia"
+        },
         isInt: {
           msg: "Debería ser un entero"
         }
       }
     },
-    altura: {
+    height: {
       type: DataTypes.FLOAT,
       validate:{
         isFloat: {
-          msg: "Debería ser un decimal"
+          msg: "Debería ser un flotante"
         }
       }
     },
-    peso: {
+    weight: {
       type: DataTypes.FLOAT,
       validate:{
         isFloat: {
-          msg: "Debería ser un decimal"
+          msg: "Debería ser un flotante"
         }
       }
     },
