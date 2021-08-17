@@ -5,11 +5,28 @@ const fetch = require('node-fetch');
 
 const router = Router();
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    fetch('https://pokeapi.co/api/v2/pokemon')
-      .then(response => response.json())
-      .then(data => res.json(data))
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon');
+    const data = await response.json();
+    const responseNext = await fetch(data.next);
+    const dataNext = await responseNext.json();
+    let fortyPokemons = [];
+    const info = [...data.results, ...dataNext.results].map(async (p) => {
+      const response2 = await fetch(p.url);
+      const data2 = await response2.json();
+      let types = data2.types.map(s => s.type)
+      fortyPokemons.push({
+        id: data2.id,
+        name: data2.name,
+        types,
+        img:  data2.sprites.other.dream_world.front_default,
+      })
+    })
+    Promise.all(info)
+      .then(() => {
+        res.json(fortyPokemons)
+      });
   } catch (error) {
     res.json(error)
   }
