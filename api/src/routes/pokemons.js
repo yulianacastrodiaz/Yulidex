@@ -52,7 +52,12 @@ router.get("/:idPokemon", async (req, res) => {
   try {  
     let ID = req.params.idPokemon;
     if (ID.includes("-")) {
-      let pokemon = await Pokemon.findByPk(ID)
+      let pokemon = await Pokemon.findOne({
+        where: {
+          id: ID,
+        },
+        include: Type,
+      })
       res.json(pokemon) 
     } else {
       let response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${ID}`)
