@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { Pokemon } = require('../db');
+const { Pokemon, Type } = require('../db');
 const axios = require('axios')
 const fetch = require('node-fetch');
 
@@ -7,6 +7,19 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   try {
+    const newPokemon = await Pokemon.create({
+      name: "Pikacho",
+      hp: 2,
+      attack: 45,
+      defense: 21,
+      speed: 56,
+      height: 7,
+      weight: 67,
+    });
+    const newType = await Type.create({
+      name: "electric",
+    });
+    newPokemon.setTypes(newType)
     const response = await fetch('https://pokeapi.co/api/v2/pokemon');
     const data = await response.json();
     const responseNext = await fetch(data.next);
@@ -23,12 +36,20 @@ router.get("/", async (req, res) => {
         img:  data2.sprites.other.dream_world.front_default,
       })
     })
+    const pokemonsDb = await Pokemon.findAll({include: Type});
+    let {id, name, types} = pokemonsDb[0].dataValues;
+    types.map(t => {
+
+    })
+
     Promise.all(info)
       .then(() => {
+        console.log(pokemonsDb[0].dataValues.types)
+        // fortyPokemons = [...fortyPokemons, ...pokemonsDb]
         res.json(fortyPokemons)
       });
   } catch (error) {
-    res.json(error)
+    res.status(404).json(error)
   }
 })
 
@@ -48,10 +69,33 @@ router.get("/:idPokemon", async (req, res) => {
       const img = sprites.other.dream_world.front_default;
       const tipos = types.map(slot  => slot.type.name);
       res.json({name, tipos, id, img, weight, height, hp, attack, defense, speed })
-    }
+    } 
   } catch (error) {
     res.status(404).json(error)
   }
 })
+
+router.post("/", async (req, res) => {
+  let {name, types, hp, attack, defense, speed, height, weight} = req.body;
+  const Regex = /[A-Z-a-z]/;
+  try {
+    if (Regex.test(name) && Array.isArray(types) && !isNaN(hp) && !isNaN(attack) && !isNaN(defense) && !isNaN(speed)) {
+      const newPokemon = await Pokemon.create({
+        name,
+        hp,
+        attack,
+        defense,
+        speed,
+        height,
+        weight
+      });
+      newPokemon.setTypes(types);
+      res.json({ msg: "Tu pokemons ha sido creado con éxito."});
+    }
+  } catch (error) {
+    res.status(404).json(error);
+  }
+})
+
 
 module.exports = router;
