@@ -7,29 +7,16 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   try {
-    const newPokemon = await Pokemon.create({
-      name: "Pikacho",
-      hp: 2,
-      attack: 45,
-      defense: 21,
-      speed: 56,
-      height: 7,
-      weight: 67,
-    });
-    const newType = await Type.create({
-      name: "electric",
-    });
-    newPokemon.setTypes(newType)
     const response = await fetch('https://pokeapi.co/api/v2/pokemon');
     const data = await response.json();
     const responseNext = await fetch(data.next);
     const dataNext = await responseNext.json();
-    let fortyPokemons = [];
+    let allPokemons = [];
     const info = [...data.results, ...dataNext.results].map(async (p) => {
       const response2 = await fetch(p.url);
       const data2 = await response2.json();
       let types = data2.types.map(s => s.type)
-      fortyPokemons.push({
+      allPokemons.push({
         id: data2.id,
         name: data2.name,
         types,
@@ -37,16 +24,24 @@ router.get("/", async (req, res) => {
       })
     })
     const pokemonsDb = await Pokemon.findAll({include: Type});
-    let {id, name, types} = pokemonsDb[0].dataValues;
-    types.map(t => {
-
-    })
-
+    let pokemonsMapped = pokemonsDb.map( p => {
+      let typesDB = p.dataValues.types.map(t => {
+        const type = {
+          id: t.dataValues.id,
+          name: t.dataValues.name,
+        }
+        return type;
+      })
+      const pokemon = {
+        name: p.dataValues.name,
+        types: typesDB,
+      }
+      return pokemon;
+    }) 
     Promise.all(info)
       .then(() => {
-        console.log(pokemonsDb[0].dataValues.types)
-        // fortyPokemons = [...fortyPokemons, ...pokemonsDb]
-        res.json(fortyPokemons)
+        allPokemons = [...allPokemons, ...pokemonsMapped];
+        res.json(allPokemons);
       });
   } catch (error) {
     res.status(404).json(error)
