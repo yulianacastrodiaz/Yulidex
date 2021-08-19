@@ -6,43 +6,64 @@ const fetch = require('node-fetch');
 const router = Router();
 
 router.get("/", async (req, res) => {
+  let { name } = req.query;
   try {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon');
-    const data = await response.json();
-    const responseNext = await fetch(data.next);
-    const dataNext = await responseNext.json();
-    let allPokemons = [];
-    const info = [...data.results, ...dataNext.results].map(async (p) => {
-      const response2 = await fetch(p.url);
-      const data2 = await response2.json();
-      let types = data2.types.map(s => s.type)
-      allPokemons.push({
-        id: data2.id,
-        name: data2.name,
-        types,
-        img:  data2.sprites.other.dream_world.front_default,
-      })
-    })
-    const pokemonsDb = await Pokemon.findAll({include: Type});
-    let pokemonsMapped = pokemonsDb.map( p => {
-      let typesDB = p.dataValues.types.map(t => {
-        const type = {
-          id: t.dataValues.id,
-          name: t.dataValues.name,
-        }
-        return type;
-      })
-      const pokemon = {
-        name: p.dataValues.name,
-        types: typesDB,
+    if(name) {
+      const pokeDb = await Pokemon.findOne({ where: { name: name }, include: Type,})
+      if(pokeDb) {
+        res.json(pokeDb);
+      } else if(pokeDb === null) {
+        name = name.toLowerCase();
+        let response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        const { types, id, sprites, weight, height, stats} = response.data;
+        const hp = stats[0].base_stat;
+        const attack = stats[1].base_stat;
+        const defense = stats[2].base_stat;
+        const speed = stats[5].base_stat;
+        const img = sprites.other.dream_world.front_default;
+        const tipos = types.map(slot  => slot.type.name);
+        res.json({name: response.data.name, tipos, id, img, weight, height, hp, attack, defense, speed })
+      } else {
+        res.status(404).json({msg: "No se encontró el pokemon"})
       }
-      return pokemon;
-    }) 
-    Promise.all(info)
-      .then(() => {
-        allPokemons = [...allPokemons, ...pokemonsMapped];
-        res.json(allPokemons);
-      });
+    } else {
+      const response = await fetch('https://pokeapi.co/api/v2/pokemon');
+      const data = await response.json();
+      const responseNext = await fetch(data.next);
+      const dataNext = await responseNext.json();
+      let allPokemons = [];
+      const info = [...data.results, ...dataNext.results].map(async (p) => {
+        const response2 = await fetch(p.url);
+        const data2 = await response2.json();
+        let types = data2.types.map(s => s.type)
+          allPokemons.push({
+            id: data2.id,
+            name: data2.name,
+            types,
+            img:  data2.sprites.other.dream_world.front_default,
+          })
+      })
+      const pokemonsDb = await Pokemon.findAll({include: Type});
+      let pokemonsMapped = pokemonsDb.map( p => {
+        let typesDB = p.dataValues.types.map(t => {
+          const type = {
+            id: t.dataValues.id,
+            name: t.dataValues.name,
+          }
+          return type;
+        })
+        const pokemon = {
+          name: p.dataValues.name,
+          types: typesDB,
+        }
+        return pokemon;
+      }) 
+      Promise.all(info)
+        .then(() => {
+          allPokemons = [...allPokemons, ...pokemonsMapped];
+          res.json(allPokemons);
+        });
+    }
   } catch (error) {
     res.status(404).json(error)
   }
