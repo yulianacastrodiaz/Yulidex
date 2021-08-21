@@ -6,13 +6,16 @@ export function NavBar(){
   return(
     <div className={s.NavBar}>
       <div className={s.logo}>
-        <img src="../img/bulbasaur.svg" alt="logo-pokedex"  height="48px" ></img>
+        <NavLink to="/">
+          <img src="../img/logo.svg" alt="logo-pokedex"  height="54px"></img>
+          <img src="../img/logopokemon.svg" alt="textopokemon" height="54px"></img>
+        </NavLink>
       </div>
       <div className={s.ul}>
         <li><NavLink to="/home">Home</NavLink></li>
         <li><NavLink to="/create">Create</NavLink></li>
         <li><NavLink to="/types">Types</NavLink></li>
-        <li><NavLink to="/login">Log in</NavLink></li>
+        <NavLink to="/login"><span className="material-icons md-light" id={s.hola}>login</span></NavLink>
       </div>
     </div>
   )
