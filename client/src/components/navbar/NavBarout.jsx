@@ -25,7 +25,7 @@ export function NavBarout(){
         <li><NavLink to="/home">Home</NavLink></li>
         <li><NavLink to="/create">Create</NavLink></li>
         <li><NavLink to="/types">Types</NavLink></li>
-        <NavLink to="/login"><span className="material-icons md-light" id={s.hola}>logout</span></NavLink>
+        <NavLink to="/logout"><p className="material-icons md-light" id={s.logout}>logout</p></NavLink>
       </div>
     </div>
   )
