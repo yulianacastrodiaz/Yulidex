@@ -1,0 +1,30 @@
+.LandingPage{
+  display: flex;
+  /* height: 100vh; */
+  /* height: 91vh;
+  width: 100%; */
+  /* background-image: url("../../orden3_principales.svg"); */
+  align-items: flex-end;
+} 
+ 
+#pokemon{
+  /* margin-top: 30px;
+  height: 350px; */
+  height: 89.7vh;
+  width: 100%;
+}
+
+#go {
+  width: 50px;
+  height: 30px;
+  border-radius: 5px;
+  border: 0;
+}
+
+.LandingPage a{
+  height: 35px;
+}
+
+#go:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
