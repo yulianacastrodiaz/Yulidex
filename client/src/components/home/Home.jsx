@@ -6,9 +6,15 @@ export default function Home(){
   return(
     <div className={s.home}>
       <div className={s.buttons}>
-      <button>sort</button>
-      <button>A-Z</button>
-      <button>Z-A</button>
+        <select name="Type">
+          <option>Type</option>
+        </select>
+        <select>
+          <option>Ascendant</option>
+        </select>
+        <select>
+          <option>Falling</option>
+        </select>
       </div>
       <Pokemons></Pokemons>
     </div>
