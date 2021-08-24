@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 30 30" style="enable-background:new 0 0 30 30;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#Rectangle-2_1_);}
+	.st1{fill:#FFFFFF;}
+</style>
+<g id="Types_Ice" transform="translate(10 10)">
+	<g id="Group" transform="translate(5 5)">
+		<g transform="matrix(1, 0, 0, 1, -15, -15)">
+			
+				<linearGradient id="Rectangle-2_1_" gradientUnits="userSpaceOnUse" x1="-603.2" y1="511.9667" x2="-603.2" y2="510.9667" gradientTransform="matrix(30 0 0 -30 18111 15359)">
+				<stop  offset="0" style="stop-color:#70CCBD"/>
+				<stop  offset="1" style="stop-color:#8CDDD4"/>
+			</linearGradient>
+			<path id="Rectangle-2" class="st0" d="M15,0L15,0c8.3,0,15,6.7,15,15l0,0c0,8.3-6.7,15-15,15l0,0C6.7,30,0,23.3,0,15l0,0
+				C0,6.7,6.7,0,15,0z"/>
+		</g>
+		<g id="Group_2" transform="translate(6.5 6.5)">
+			<path id="Polygon" class="st1" d="M-2.3-13.7l0,4.6l-4,1.9l0-4.3L-2.3-13.7z"/>
+			<path id="Polygon-2" class="st1" d="M1.7-6.4l-4,2.3l-4-2.3l4-2.1L1.7-6.4z"/>
+			<path id="Polygon_Copy" class="st1" d="M-7-6.4l-4,2.3l-4-2.3l4-2.1L-7-6.4z"/>
+			<path id="Polygon-3" class="st1" d="M-11-13.7l4.1,2L-7-7.2l-3.9-1.9L-11-13.7z"/>
+			<path id="Polygon-4" class="st1" d="M-2.2,0.7l-4.1-2l0.1-4.4l3.9,1.9L-2.2,0.7z"/>
+			<path id="Polygon-5" class="st1" d="M-10.8,0.8l0-4.6l4-1.9l0,4.3L-10.8,0.8z"/>
+		</g>
+	</g>
+</g>
+</svg>
