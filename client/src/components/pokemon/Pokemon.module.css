@@ -3,7 +3,8 @@
   width: 18rem;
   display: flex;
   flex-direction: column;
-  margin-left: 15px;
+  margin-left: 30px;
+  margin-top: 30px;
   border-radius: 25px;
   justify-content: center;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -64,6 +65,7 @@
 
 .about .descriptionlarger img{
   margin-top: 8px;
+  margin-left: 5px;
 }
 
 .header p{
