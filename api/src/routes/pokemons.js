@@ -32,7 +32,7 @@ router.get("/", async (req, res) => {
       const responseNext = await fetch(data.next);
       const dataNext = await responseNext.json();
       let allPokemons = [];
-      const info = [...data.results, ...dataNext.results].map(async (p) => {
+      const info =  [...data.results, ...dataNext.results].map(async (p) => {
         const response2 = await fetch(p.url);
         const data2 = await response2.json();
         let types = data2.types.map(s => s.type)
@@ -41,6 +41,9 @@ router.get("/", async (req, res) => {
             name: data2.name,
             types,
             img:  data2.sprites.other.dream_world.front_default,
+            height: data2.height,
+            weight: data2.weight,
+            attack: data2.stats[1].base_stat,
           })
       })
       const pokemonsDb = await Pokemon.findAll({include: Type});
@@ -53,8 +56,12 @@ router.get("/", async (req, res) => {
           return type;
         })
         const pokemon = {
+          id: p.id,
           name: p.dataValues.name,
           types: typesDB,
+          height: p.height,
+          weight: p.weight,
+          attack: p.attack,
         }
         return pokemon;
       }) 

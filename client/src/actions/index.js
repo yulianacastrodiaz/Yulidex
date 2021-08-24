@@ -1,9 +1,11 @@
 export const getPokemons = () => async(dispatch) => {
-  const response = await fetch("https://localhost:3001/pokemons");
+  const response = await fetch("http://localhost:3001/pokemons");
   const data = await response.json();
-  dispatch({
+  return dispatch({
     type: "GET_POKEMONS",
     pokemons: data,
   })
 }
+
+
 
