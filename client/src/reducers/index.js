@@ -11,4 +11,6 @@ export default function rootReducer(state = initialState, action) {
       pokemons: action.pokemons
     }
   }
+
+  return state;
 }
