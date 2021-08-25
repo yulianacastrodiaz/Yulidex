@@ -3,7 +3,7 @@ import Pokemon from "../pokemon/Pokemon"
 import s from "./Pokemons.module.css"
 import { connect } from "react-redux"
 import { getPokemons } from "../../actions/index"
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 function Pokemons(props){
 
@@ -24,6 +24,7 @@ function Pokemons(props){
             height={p.height}
             weight={p.weight}
             attack={p.attack}
+            experience={p.experience}
             ></Pokemon>
         })
       }

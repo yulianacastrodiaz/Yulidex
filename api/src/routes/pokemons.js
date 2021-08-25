@@ -44,6 +44,7 @@ router.get("/", async (req, res) => {
             height: data2.height,
             weight: data2.weight,
             attack: data2.stats[1].base_stat,
+            experience: data2.base_experience,
           })
       })
       const pokemonsDb = await Pokemon.findAll({include: Type});
