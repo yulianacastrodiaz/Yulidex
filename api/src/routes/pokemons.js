@@ -2,7 +2,6 @@ const { Router } = require('express');
 const { Pokemon, Type } = require('../db');
 const axios = require('axios')
 const fetch = require('node-fetch');
-
 const router = Router();
 
 router.get("/", async (req, res) => {
@@ -15,14 +14,15 @@ router.get("/", async (req, res) => {
       } else if(pokeDb === null) {
         name = name.toLowerCase();
         let response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-        const { types, id, sprites, weight, height, stats} = response.data;
+        const { types, id, sprites, weight, height, stats, base_experience} = response.data;
         const hp = stats[0].base_stat;
         const attack = stats[1].base_stat;
         const defense = stats[2].base_stat;
         const speed = stats[5].base_stat;
         const img = sprites.other.dream_world.front_default;
         const tipos = types.map(slot  => slot.type.name);
-        res.json({name: response.data.name, tipos, id, img, weight, height, hp, attack, defense, speed })
+        const experience = base_experience;
+        res.json({name: response.data.name, tipos, id, img, weight, height, hp, attack, defense, speed, experience })
       } else {
         res.status(404).json({msg: "No se encontró el pokemon"})
       }
@@ -125,6 +125,5 @@ router.post("/", async (req, res) => {
     res.status(404).json(error);
   }
 })
-
 
 module.exports = router;
