@@ -7,22 +7,46 @@
   align-items: flex-end;
 } 
  
-#pokemon{
+#gray{
+  height: 89.7vh;
+}
+
+#bg_blob{
+  height: 89.7vh;
+  position: absolute;
+  right: 0px;
+  top: 64px;
+}
+
+#title{
+  top: 180px;
+  width: 500px;
+  position: absolute;
+  left: 110px;
+}
+
+/* #pokemon{
   /* margin-top: 30px;
   height: 350px; */
-  height: 89.7vh;
+  /* height: 89.7vh;
   width: 100%;
-}
+} */ *
 
 #go {
   width: 50px;
   height: 30px;
   border-radius: 5px;
   border: 0;
+  position: absolute;
+  left: 330px;
+  top: 450px;
+  background-color: #fa4659;
+  color: white;
 }
 
 .LandingPage a{
   height: 35px;
+  background-color: #c4c4c4;
 }
 
 #go:hover {
