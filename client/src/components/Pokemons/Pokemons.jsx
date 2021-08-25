@@ -13,7 +13,11 @@ function Pokemons(props){
 
   return(
     <div className={s.pokemons}>
-      {
+       <div className={s.pagination}>
+        <button type="button"></button>
+        <button type="button"></button>
+      </div>
+      { props.pokemons.length ? (
         props.pokemons.map((p) => {
           return <Pokemon
             key={p.id}
@@ -27,7 +31,10 @@ function Pokemons(props){
             experience={p.experience}
             ></Pokemon>
         })
-      }
+        )
+        : (
+          <img src="../img/loading2.gif" alt="loading" id={s.loading} height="150px"></img>
+        )}
     </div>
   )
 }

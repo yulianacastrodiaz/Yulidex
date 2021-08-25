@@ -1,6 +1,9 @@
 .pokemons{
   display: flex;
   justify-content: center;
-  margin-top: 10px;
   flex-wrap: wrap;
+}
+
+#loading{
+ margin-top: 200px; 
 }
