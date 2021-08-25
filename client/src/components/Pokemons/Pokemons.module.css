@@ -7,3 +7,25 @@
 #loading{
  margin-top: 200px; 
 }
+
+.pagination{
+  display: flex;
+  justify-content: center;
+}
+
+.pagination button{
+  margin-left: 5px;
+  height: 30px;
+  border-radius: 0px 0px 20px 20px ;
+  border: 0px;
+  background-color: #fa4659;
+  color: white;
+}
+
+#next{
+  width: 70px;
+}
+
+#previous{
+  width: 100px;
+}
