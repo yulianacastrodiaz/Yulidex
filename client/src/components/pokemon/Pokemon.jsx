@@ -22,9 +22,9 @@ const iconsTypes = {
   "fairy": "../img/types_icon/fairy.svg",
 }
 
-export default function Pokemon ({id, name, types, img, weight, height, attack}){
+export default function Pokemon ({id, name, types, img, weight, height, attack, experience}){
   return(
-    <div className={s.pokemon}>
+    <div className={s[types[0].name]}>
       <div className={s.back}>
         <div className={s.header}>
           <p id={s.name}>{name.toUpperCase()}</p>
@@ -56,7 +56,9 @@ export default function Pokemon ({id, name, types, img, weight, height, attack})
             <p>Attack
               <p>{attack}</p>
             </p>
-            <p>Caught</p> 
+            <p>Experience
+              <p>{experience}</p>
+            </p> 
           </div>
         </div>
       </div>
