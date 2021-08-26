@@ -6,8 +6,9 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   let { name } = req.query;
+  console.log(name)
   try {
-    if(name) {
+    if(name !== undefined) {
       const pokeDb = await Pokemon.findOne({ where: { name: name }, include: Type,})
       if(pokeDb) {
         res.json(pokeDb);
@@ -20,9 +21,9 @@ router.get("/", async (req, res) => {
         const defense = stats[2].base_stat;
         const speed = stats[5].base_stat;
         const img = sprites.other.dream_world.front_default;
-        const tipos = types.map(slot  => slot.type.name);
+        const tipos = types.map(slot  => slot.type);
         const experience = base_experience;
-        res.json({name: response.data.name, tipos, id, img, weight, height, hp, attack, defense, speed, experience })
+        res.json({ name: response.data.name, types: tipos, id, img, weight, height, hp, attack, defense, speed, experience })
       } else {
         res.status(404).json({msg: "No se encontró el pokemon"})
       }

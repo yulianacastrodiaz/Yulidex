@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import s from "./NavBarout.module.css"
+import s from "./NavBarout.module.css";
+import { connect } from "react-redux";
+import { getPokemon, getPokemons } from "../../actions";
 
-export function NavBarout(){
+export function NavBarout(props){
+  const [namePokemon, setNamepokemon] = useState("");
+
+  function handleChange(e){
+    setNamepokemon(e.target.value)
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+    if(namePokemon !== ""){
+      props.getPokemon(namePokemon)
+    } else {
+      props.getPokemons()
+    }
+    setNamepokemon('')
+  }
+
   return(
     <div className={s.NavBar}>
       <div className={s.logo}>
@@ -12,11 +30,16 @@ export function NavBarout(){
         </NavLink>
       </div>
       <div>
-        <form className={s.wrap}>
+        <form className={s.wrap} onSubmit={(e) => handleSubmit(e)}>
           <div className={s.search}>
-            <input type="text" className={s.searchTerm} placeholder="Buscar pokemons..."></input>
+            <input type="text" 
+            className={s.searchTerm} 
+            placeholder="Buscar pokemons..."
+            value={namePokemon}
+            onChange={(e) => handleChange(e)}
+            ></input>
             <button type="submit" className={s.searchButton}>
-            <span className="material-icons" id={s.searchicon}>search</span>
+              <span className="material-icons" id={s.searchicon}>search</span>
             </button>
           </div> 
         </form> 
@@ -31,4 +54,11 @@ export function NavBarout(){
   )
 }
 
-export default NavBarout;
+function mapDispatchToProps(dispatch){
+  return{
+    getPokemon: (name) => dispatch(getPokemon(name)),
+    getPokemons: () => dispatch(getPokemons())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(NavBarout);

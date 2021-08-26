@@ -9,10 +9,10 @@ export const getPokemons = () => async(dispatch) => {
 
 export const getPokemon = (name) => async(dispatch) => {
   const response = await fetch(`http://localhost:3001/pokemons?name=${name}`);
-  const pokemon = await response.json();
+  const data = await response.json();
   dispatch({
     type: "GET_POKEMON",
-    pokemon
+    pokemon: data
   })
 }
 
