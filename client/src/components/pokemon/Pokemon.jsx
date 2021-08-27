@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import s from "./Pokemon.module.css"
 
 const iconsTypes = {
@@ -24,10 +25,12 @@ const iconsTypes = {
 
 export default function Pokemon ({id, name, types, img, weight, height, attack, experience}){
   return(
-    <div className={s[types[0].name]}>
+    <div className={s[types?.[0].name]}>
       <div className={s.back}>
         <div className={s.header}>
-          <p id={s.name}>{name.toUpperCase()}</p>
+          <NavLink to={`/home/${id}`}>
+            <p id={s.name}>{name.toUpperCase()}</p>
+          </NavLink>
           <div className={s.id}>
             <img src="../img/pokeball.svg" alt="pokeball" height="30px"></img>
             <p id={s.idnum}>{id}</p>
@@ -43,7 +46,7 @@ export default function Pokemon ({id, name, types, img, weight, height, attack, 
             </p>
             <p>Type
               <div>
-                {types.map(t=>{
+                {types?.map(t=>{
                  return <img src={iconsTypes[t.name]} alt={`icono ${t.name}`} height="30px"></img>
                 })}
               </div>
