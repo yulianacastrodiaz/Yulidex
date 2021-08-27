@@ -6,7 +6,6 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   let { name } = req.query;
-  console.log(name)
   try {
     if(name !== undefined) {
       const pokeDb = await Pokemon.findOne({ where: { name: name }, include: Type,})

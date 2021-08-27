@@ -23,6 +23,15 @@ export const setPages = (value) => {
   }
 }
 
+export const getTypes = () => async(dispatch) => {
+  const response = await fetch(`http://localhost:3001/types`);
+  const types = await response.json();
+  dispatch({
+    type: "GET_TYPES",
+    types
+  })
+}
+
 
 
 
