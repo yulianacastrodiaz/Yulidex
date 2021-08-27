@@ -16,6 +16,13 @@ export const getPokemon = (name) => async(dispatch) => {
   })
 }
 
+export const setPages = (value) => {
+  return {
+    type: "SET_PAGES",
+    value
+  }
+}
+
 
 
 
