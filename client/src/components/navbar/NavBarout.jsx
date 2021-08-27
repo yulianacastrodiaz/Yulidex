@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import s from "./NavBarout.module.css";
 import { connect } from "react-redux";
-import { getPokemon, getPokemons } from "../../actions";
+import { getPokemon, getPokemons, setPages } from "../../actions";
 
 export function NavBarout(props){
   const [namePokemon, setNamepokemon] = useState("");
+
+  useEffect(() => {
+    props.getPokemons()
+  },[])
 
   function handleChange(e){
     setNamepokemon(e.target.value)
@@ -18,6 +22,7 @@ export function NavBarout(props){
     } else {
       props.getPokemons()
     }
+    props.setPages(0)
     setNamepokemon('')
   }
 
@@ -57,7 +62,8 @@ export function NavBarout(props){
 function mapDispatchToProps(dispatch){
   return{
     getPokemon: (name) => dispatch(getPokemon(name)),
-    getPokemons: () => dispatch(getPokemons())
+    getPokemons: () => dispatch(getPokemons()),
+    setPages: (value) => dispatch(setPages(value))
   }
 }
 
