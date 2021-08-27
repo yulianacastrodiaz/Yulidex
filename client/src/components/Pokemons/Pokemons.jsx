@@ -1,28 +1,32 @@
 import React, { useState } from "react"
 import Pokemon from "../pokemon/Pokemon"
 import s from "./Pokemons.module.css"
-import { connect } from "react-redux"
-import { getPokemons } from "../../actions/index"
+import { connect, useSelector } from "react-redux"
+import { getPokemons, setPages } from "../../actions/index"
 import { useEffect } from 'react';
+import { sort, sortTypes } from "../../middleware/filtros"
 
-function Pokemons(props){
+function Pokemons({ types, pokemons, pages, setPages }){
 
-  const [pages, setPages] = useState(0)
+  // const [pages, setPages] = useState(0)
+  const [sortPokemons, setSortPokemons] = useState([])
 
   useEffect(() => {
-    props.getPokemons();
-  },[]);
+    // console.log(pokemons)
+    setSortPokemons(pokemons)
+    setPages(0)
+  },[pokemons]);
   
   function pagination(){
-    if(props.pokemons.length) {
-      return props.pokemons.slice(pages, pages + 12)
+    if(sortPokemons.length) {
+      return sortPokemons.slice(pages, pages + 12);
     } else {
-      return []
+      return [];
     }
   }
 
   function next(){
-    if(pages + 12 < props.pokemons.length){
+    if(pages + 12 < sortPokemons.length){
       setPages(pages + 12)
     }
   }
@@ -32,10 +36,46 @@ function Pokemons(props){
       setPages(pages - 12)
     }
   }
-  
-  var pokemonsPaginated = pagination();
+
+  let pokemonsPaginated = pagination();
+
+  function handleChange(e){
+    let pokemons2 = sort(sortPokemons, e.target.value);
+    setSortPokemons(pokemons2)
+  }
+
+  function handleChangeTypes(e){
+    let sortPokemonsForTypes = sortTypes(sortPokemons, e.target.value);
+    console.log(sortPokemonsForTypes)
+    if(sortPokemonsForTypes.length){
+      setSortPokemons(sortPokemonsForTypes)
+    } else {
+      alert("El tipo que estás buscando no está entre los pokemones traídos")
+    }
+  }
+
   return(
+    pokemons[0]?.message ? (
+      <p>BUSCA BIEN GILI</p>
+    ) : (
     <div>
+      <div className={s.buttons}>
+        <select name="Type" onChange={(e) => handleChangeTypes(e)}>
+          <option value="Types">Types</option>
+          {
+            types.map(t => {
+             return <option value={t.name}>{t.name}</option>
+            })
+          }
+        </select>
+        <select name="Sort by" onChange={(e) => handleChange(e)}>
+          <option value="Sort by:">Sort by:</option>
+          <option value="A-Z">A-Z</option>
+          <option value="Z-A">Z-A</option>
+          <option value="Attack +">Attack +</option>
+          <option value="Attack -">Attack -</option>
+        </select>
+      </div>
     <div className={s.pagination}>
       <button type="button" onClick={previous} id={s.previous}>&laquo; previous</button>
       <button type="button" onClick={next} id={s.next}>next &raquo;</button>
@@ -61,18 +101,20 @@ function Pokemons(props){
         )}
     </div>
     </div>
-  )
+  ))
 }
 
 function mapStateToProps(state){
   return{
-    pokemons: state.pokemons
+    pokemons: state.pokemons,
+    pages: state.pages,
+    types: state.types,
   }
 }
 
 function mapDispatchToProps(dispatch){
   return{
-    getPokemons: () => dispatch(getPokemons())
+    setPages: (value) => dispatch(setPages(value)),
   }
 }
 

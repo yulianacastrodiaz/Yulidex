@@ -29,3 +29,18 @@
 #previous{
   width: 100px;
 }
+
+.buttons{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #fa4659;
+}
+
+.buttons select{
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  border: none;
+  outline: none;
+  height: 30px;
+}
