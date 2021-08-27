@@ -1,7 +1,8 @@
 const initialState = {
   pokemons: [],
   types: [],
-  pokemonDetail: {}
+  pokemonDetail: {},
+  pages: 0,
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -16,6 +17,20 @@ export default function rootReducer(state = initialState, action) {
     return{
       ...state,
       pokemons: [action.pokemon]
+    }
+  }
+
+  if(action.type === "SET_PAGES"){
+    return{
+      ...state,
+      pages: action.value
+    }
+  }
+
+  if(action.type === "GET_TYPES"){
+    return{
+      ...state,
+      types: action.types
     }
   }
 
