@@ -1,14 +1,12 @@
 import React, { useState } from "react"
 import Pokemon from "../pokemon/Pokemon"
 import s from "./Pokemons.module.css"
-import { connect, useSelector } from "react-redux"
-import { getPokemons, setPages } from "../../actions/index"
+import { connect } from "react-redux"
+import { setPages } from "../../actions/index"
 import { useEffect } from 'react';
-import { sort, sortTypes } from "../../middleware/filtros"
+import { sort, sortCreate, sortTypes } from "../../middleware/filtros"
 
 function Pokemons({ types, pokemons, pages, setPages }){
-
-  // const [pages, setPages] = useState(0)
   const [sortPokemons, setSortPokemons] = useState([])
 
   useEffect(() => {
@@ -39,14 +37,17 @@ function Pokemons({ types, pokemons, pages, setPages }){
 
   let pokemonsPaginated = pagination();
 
+  function handleChangeCreate(e){
+    let pokemonsSortByCreate = sortCreate(pokemons, e.target.value);
+    setSortPokemons(pokemonsSortByCreate);
+  }
   function handleChange(e){
     let pokemons2 = sort(sortPokemons, e.target.value);
-    setSortPokemons(pokemons2)
+    setSortPokemons(pokemons2);
   }
 
   function handleChangeTypes(e){
     let sortPokemonsForTypes = sortTypes(sortPokemons, e.target.value);
-    console.log(sortPokemonsForTypes)
     if(sortPokemonsForTypes.length){
       setSortPokemons(sortPokemonsForTypes)
     } else {
@@ -74,6 +75,11 @@ function Pokemons({ types, pokemons, pages, setPages }){
           <option value="Z-A">Z-A</option>
           <option value="Attack +">Attack +</option>
           <option value="Attack -">Attack -</option>
+        </select>
+        <select name="Created by" onChange={(e) => handleChangeCreate(e)}>
+          <option value="Created by:">Created by:</option>
+          <option value="Own">Own</option>
+          <option value="Api">Api</option>
         </select>
       </div>
     <div className={s.pagination}>
