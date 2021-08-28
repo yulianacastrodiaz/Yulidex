@@ -34,5 +34,12 @@ export default function rootReducer(state = initialState, action) {
     }
   }
 
+  if(action.type === "GET_POKEMONBYID"){
+    return{
+      ...state,
+      pokemonDetail: action.pokemonById
+    }
+  }
+
   return state;
 }
