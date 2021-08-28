@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,500&display=swap');
+
+:root{
+  --colorTextos: #49454567;
+}
+
+
+.create{
+ /* background: linear-gradient(rgb(253, 165, 152), rgb(220, 146, 159), rgb(186, 128, 164), rgb(150, 110, 169), rgb(109, 94, 174));
+  */
+  /* background: linear-gradient(rgb(248, 183, 194), rgb(236, 163, 199), rgb(223, 142, 203), rgb(209, 122, 207), rgb(195, 101, 210)); */
+  background: linear-gradient(rgb(30, 178, 178), rgb(45, 188, 183), rgb(57, 198, 188), rgb(68, 208, 192), rgb(78, 218, 197));
+  height: 140vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create h3{
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  margin: 10px 0px;
+}
+
+#form{
+  background-color: white;
+  height: 700px;
+  width: 30%;
+  border-radius: 20px;
+  padding: 10px 0px;
+  box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
+}
+
+.form{
+  width: 100%;
+  margin: auto;
+}
+
+#form .grupo{
+  position: relative;
+  margin: 45px;
+}
+
+#input{
+  background: none;
+  color: #c6c6c6;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--colorTextos);
+  resize: none;
+}
+
+#input:focus{
+  outline: none;
+  color: rgb(94, 93, 93);
+}
+
+#input:focus~#label, #input:valid~#label{
+  position: absolute;
+  top: -14px;
+  font-size: 12px;
+  color: #2196F3;
+}
+
+#label{
+  color: var(--colorTextos);
+  font-size: 16px;
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  transition: 0.5s ease all;
+  pointer-events: none;
+}
+
+
+#input:focus~.barra::before{
+  width: 100%;
+}
+
+.barra{
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.barra::before{
+  content: "";
+  height: 2px;
+  width: 0px;
+  bottom: 0px;
+  position: absolute;
+  background: linear-gradient(rgb(30, 178, 178), rgb(45, 188, 183), rgb(57, 198, 188), rgb(68, 208, 192), rgb(78, 218, 197));
+  transition: 0.3s ease all;
+  left: 0%;
+}
+
+.types{
+  display: grid;
+  justify-content: center;
+}  

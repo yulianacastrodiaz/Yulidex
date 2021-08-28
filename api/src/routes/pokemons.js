@@ -97,7 +97,7 @@ router.get("/:idPokemon", async (req, res) => {
       const speed = stats[5].base_stat;
       const img = sprites.other.dream_world.front_default;
       const tipos = types.map(slot  => slot.type.name);
-      res.json({name, tipos, id, img, weight, height, hp, attack, defense, speed })
+      res.json({name, types: tipos, id, img, weight, height, hp, attack, defense, speed })
     } 
   } catch (error) {
     res.status(404).json(error)
