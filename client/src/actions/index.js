@@ -32,7 +32,14 @@ export const getTypes = () => async(dispatch) => {
   })
 }
 
-
+export const getPokemonById = (id) => async(dispatch) => {
+  const response = await fetch (`http://localhost:3001/pokemons/${id}`);
+  const pokemonById = await response.json();
+  dispatch({
+    type:"GET_POKEMONBYID",
+    pokemonById
+  })
+}
 
 
 
