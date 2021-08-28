@@ -75,3 +75,13 @@ export function sortTypes(state, type){
 
   return pokemons
 }
+
+export function sortCreate(state, creator){
+  if(creator === "Api"){
+    return state.filter(p => !(isNaN(p.id)))
+  } else if(creator === "Own"){
+    return state.filter(p => isNaN(p.id))
+  } else {
+    return state
+  }
+}
