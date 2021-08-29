@@ -55,13 +55,6 @@ export function sort(state, typeOfSort){
 }
 
 export function sortTypes(state, type){
-  console.log(state)
-  console.log(type)
-  // let types = state.map(p => p.types)
-  // let pokemosSortByTypes = []
-  // types.filter(t => {
-  //   if(t.name === types) pokemosSortByTypes.push()
-  // })
   if(type === "Types") return state
   let pokemons = []
   for (let i = 0; i < state.length; i++) {

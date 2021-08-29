@@ -7,8 +7,6 @@ import Home from './components/home/Home';
 import NavBarout from './components/navbar/NavBarout'
 import PokemonDetail from './components/PokemonDetail/PokemonDetail';
 import CreatePokemon from './components/createPokemon/CreatePokemon';
-// import Pokemon from './components/pokemon/Pokemon';
-// import Pokemons from './components/Pokemons/Pokemons';
 
 function App() {
   return (
