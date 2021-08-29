@@ -44,7 +44,7 @@
 }
 
 .ul li:hover{
-  background-color: #FDFFE3;
+  background-color: #fff;
 }
 
 .ul li:hover a{
@@ -78,7 +78,7 @@
 
 
 .ul a #logout:hover{
-  background-color: #FDFFE3;
+  background-color: white;
   color: black;
 }
 
