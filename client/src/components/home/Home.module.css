@@ -13,18 +13,3 @@
   flex-direction: column;
 }
 
-.buttons{
-  display: flex;
-  justify-content: space-evenly;
-  background-color: #fa4659;
-}
-
-.buttons select{
-  background-color: white;
-  border-radius: 20px;
-  margin-bottom: 10px;
-  border: 0px;
-  height: 30px;
-}
-
-
