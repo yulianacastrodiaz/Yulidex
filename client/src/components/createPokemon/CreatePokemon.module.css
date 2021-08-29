@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Poppins:wght@300&display=swap');
 
 :root{
   --colorTextos: #49454567;
@@ -6,11 +7,13 @@
 
 
 .create{
- /* background: linear-gradient(rgb(253, 165, 152), rgb(220, 146, 159), rgb(186, 128, 164), rgb(150, 110, 169), rgb(109, 94, 174));
-  */
+  /* background-image: linear-gradient(to top, #ffb199 0%, #fa4659 100%); */
+  /* background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%); */
+  /* background: linear-gradient(rgb(146, 219, 211), rgb(122, 192, 199), rgb(98, 166, 187), rgb(71, 140, 174), rgb(36, 116, 162)); */
+ /* background: linear-gradient(rgb(253, 165, 152), rgb(220, 146, 159), rgb(186, 128, 164), rgb(150, 110, 169), rgb(109, 94, 174)); */
   /* background: linear-gradient(rgb(248, 183, 194), rgb(236, 163, 199), rgb(223, 142, 203), rgb(209, 122, 207), rgb(195, 101, 210)); */
   background: linear-gradient(rgb(30, 178, 178), rgb(45, 188, 183), rgb(57, 198, 188), rgb(68, 208, 192), rgb(78, 218, 197));
-  height: 140vh;
+  height: 160vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -26,7 +29,7 @@
 
 #form{
   background-color: white;
-  height: 700px;
+  height: 850px;
   width: 30%;
   border-radius: 20px;
   padding: 10px 0px;
@@ -100,6 +103,18 @@
 }
 
 .types{
-  display: grid;
-  justify-content: center;
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 10px;
 }  
+
+.type{
+  display: flex;
+  align-items: center;
+  font-family: 'PT Sans', sans-serif;
+  color: rgb(94, 93, 93);
+}
+

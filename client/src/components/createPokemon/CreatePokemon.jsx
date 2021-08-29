@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getTypes } from "../../actions";
 import s from "./CreatePokemon.module.css"
 
 export default function CreatePokemon(props){
+  const dispatch = useDispatch();
   const types = useSelector((store) => store.types);
   const [form, setForm] = useState({
     name: "",
@@ -16,6 +18,10 @@ export default function CreatePokemon(props){
   });
 
   const[errors, setErrors] = useState({});
+
+  useEffect(() => {
+    dispatch(getTypes())
+  },[])
 
   async function handleSubmit(e){
     e.preventDefault();
@@ -114,8 +120,8 @@ export default function CreatePokemon(props){
           <div className={s.types}>
             {
               types?.map(t => {
-                return <div>
-                  <input type="checkbox" name={t.name} value={t.id} id={t.id} onChange={handleChangeTypes}></input>
+                return <div className={s.type}>
+                  <input type="checkbox" name={t.name} value={t.id} id={t.id} onChange={handleChangeTypes} ></input>
                   <label htmlFor={t.id}>{t.name}</label>
                   {t.id % 10 === 0 ? <br/> : null}
                 </div>
