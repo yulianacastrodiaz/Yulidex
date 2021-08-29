@@ -7,13 +7,8 @@
 
 
 .create{
-  /* background-image: linear-gradient(to top, #ffb199 0%, #fa4659 100%); */
-  /* background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%); */
-  /* background: linear-gradient(rgb(146, 219, 211), rgb(122, 192, 199), rgb(98, 166, 187), rgb(71, 140, 174), rgb(36, 116, 162)); */
- /* background: linear-gradient(rgb(253, 165, 152), rgb(220, 146, 159), rgb(186, 128, 164), rgb(150, 110, 169), rgb(109, 94, 174)); */
-  /* background: linear-gradient(rgb(248, 183, 194), rgb(236, 163, 199), rgb(223, 142, 203), rgb(209, 122, 207), rgb(195, 101, 210)); */
   background: linear-gradient(rgb(30, 178, 178), rgb(45, 188, 183), rgb(57, 198, 188), rgb(68, 208, 192), rgb(78, 218, 197));
-  height: 160vh;
+  height: 150vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -29,7 +24,7 @@
 
 #form{
   background-color: white;
-  height: 850px;
+  height: 830px;
   width: 30%;
   border-radius: 20px;
   padding: 10px 0px;
@@ -82,7 +77,7 @@
 
 
 #input:focus~.barra::before{
-  width: 100%;
+  width: 330px;
 }
 
 .barra{
@@ -94,7 +89,7 @@
 .barra::before{
   content: "";
   height: 2px;
-  width: 0px;
+  width: 0%;
   bottom: 0px;
   position: absolute;
   background: linear-gradient(rgb(30, 178, 178), rgb(45, 188, 183), rgb(57, 198, 188), rgb(68, 208, 192), rgb(78, 218, 197));
@@ -118,3 +113,15 @@
   color: rgb(94, 93, 93);
 }
 
+#boton{
+  background: linear-gradient(rgb(30, 178, 178), rgb(45, 188, 183), rgb(57, 198, 188), rgb(68, 208, 192), rgb(78, 218, 197));
+  display: block;
+  width: 100px;
+  height: 40px;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 16px auto;
+  cursor: pointer;
+}

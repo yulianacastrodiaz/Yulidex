@@ -128,7 +128,7 @@ export default function CreatePokemon(props){
               })
             }
           </div>
-          <button type="submit">Create</button>
+          <button type="submit" id={s.boton}>Create</button>
         </div>  
       </form>
     </div>
