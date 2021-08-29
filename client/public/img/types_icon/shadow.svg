@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 30 30" style="enable-background:new 0 0 30 30;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#Rectangle-2_1_);}
+	.st1{fill:#FFFFFF;}
+</style>
+<g id="Types_Water" transform="translate(10 10)">
+	<g id="Group" transform="translate(5 5)">
+		<g transform="matrix(1, 0, 0, 1, -15, -15)">
+			
+				<linearGradient id="Rectangle-2_1_" gradientUnits="userSpaceOnUse" x1="-1809.6" y1="478.9" x2="-1809.6" y2="477.9" gradientTransform="matrix(30 0 0 -30 54303 14367)">
+				<stop  offset="5.586592e-03" style="stop-color:#1E1E1E"/>
+				<stop  offset="0.1473" style="stop-color:#232322"/>
+				<stop  offset="0.3267" style="stop-color:#33302E"/>
+				<stop  offset="0.5265" style="stop-color:#4D4642"/>
+				<stop  offset="0.741" style="stop-color:#71655D"/>
+				<stop  offset="0.965" style="stop-color:#9F8C80"/>
+				<stop  offset="1" style="stop-color:#A79386"/>
+			</linearGradient>
+			<path id="Rectangle-2" class="st0" d="M15,0L15,0c8.3,0,15,6.7,15,15l0,0c0,8.3-6.7,15-15,15l0,0C6.7,30,0,23.3,0,15l0,0
+				C0,6.7,6.7,0,15,0z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<path class="st1" d="M18,12.4c0.5-0.7,0.8-1,0.9-1.9c0.3-4.9-7.4-4.7-7.9-0.9c-0.2,1.3,0.2,1.9,0.9,3.1c-0.8,1.1-1.7,2-1.9,3.4
+		c-0.2,1.9,0.6,2.5,1,3.6c0.4,1.2,0.1,2.4,0.9,3.1c1.4,0.6,4.5,0.4,6.2,0.2c0.7-0.7,1-2,1-3.4C21.3,17.6,19.5,14,18,12.4z M13.9,8.1
+		c-1.1,1-1.5,3,0.2,4.3c-0.7,1.3-1.7,1.9-1.9,3.4c-0.1,1.2,0.4,2,0.7,3.3c0.3,1.3,0.2,2.6,1,3.4c-1.8,0.5-1.5-1.8-1.9-3.1
+		c-0.2-0.6-0.8-1.2-0.9-1.7c-0.4-2.2,0.7-4,1.7-5c-0.1-0.9-0.9-1.1-1-2.1c-0.2-1.6,1.1-2.9,2.6-3.3C15,7.5,14.1,7.9,13.9,8.1z"/>
+</g>
+</svg>

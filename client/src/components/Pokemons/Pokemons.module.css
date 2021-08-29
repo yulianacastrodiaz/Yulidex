@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Poppins:wght@300&display=swap');
+
 .pokemons{
   display: flex;
   justify-content: center;
@@ -16,31 +18,51 @@
 .pagination button{
   margin-left: 5px;
   height: 30px;
-  border-radius: 0px 0px 20px 20px ;
+  border-radius: 20px;
   border: 0px;
   background-color: #fa4659;
   color: white;
+  cursor: pointer;
 }
 
+
 #next{
+  padding-left: 10px;
   width: 70px;
 }
 
 #previous{
-  width: 100px;
+  padding-left: 15px;
+  width: 70px;
 }
 
 .buttons{
+  margin-top: 5px;
   display: flex;
   justify-content: space-evenly;
-  background-color: #fa4659;
 }
 
 .buttons select{
-  background-color: white;
+  background-color:  #fa4659;
+  color: white;
   border-radius: 20px;
   margin-bottom: 10px;
   border: none;
   outline: none;
   height: 30px;
+  cursor: pointer;
+  font-family: 'PT Sans', sans-serif;
+  text-align: center;
+}
+
+option:hover{
+  background-color: white;
+  color: #fa4659;
+}
+
+.img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 88vh;
 }

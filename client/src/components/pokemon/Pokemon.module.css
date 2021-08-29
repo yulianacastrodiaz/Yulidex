@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Poppins:wght@300&display=swap');
 .electric{
   background-image: url("./img/card_electric.svg");
   width: 18rem;
@@ -304,6 +305,40 @@
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
+.shadow{
+  background-image: url("./img/card_shadow.svg");
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-radius: 25px;
+  justify-content: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.shadow:hover{
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.unknown{
+  background-image: url("./img/card_unknown.svg");
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-radius: 25px;
+  justify-content: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.unknown:hover{
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
 .descriptionlarger{
   display: flex;
   justify-content: space-around;
@@ -350,11 +385,15 @@
   display: flex;
   justify-content: center;
   margin-top: 5px;
+  align-items: center;
 }
 
 #idnum{
   margin-top: 0px;
-  font-size: 25px;
+  font-size: 28px;
+  height: 30px;
+  padding-bottom: 7px;
+  padding-top: 0px;
 }
 
 .about .descriptionlarger img{
@@ -362,10 +401,21 @@
   margin-left: 5px;
 }
 
+p{
+  font-family: 'PT Sans', sans-serif;
+  font-size: 15px;
+  color: #696d69;
+  font-weight: 700;
+}
+
 .header p{
   margin-top: 16px;
   margin-bottom: 0px;
+  font-size: 15px;
+  color: white;
+  font-weight: 400;
 }
+
 
 #types {
   padding-left: 10px;
@@ -384,4 +434,13 @@
 .header a{
   text-decoration: none;
   color: white;
+
+}
+
+.num{
+  font-family: 'Poppins', sans-serif;
+  font-size: 23px;
+  margin-top: 8px;
+  color: #353935;
+  font-weight: 300;
 }

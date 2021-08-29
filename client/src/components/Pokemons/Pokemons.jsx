@@ -10,7 +10,6 @@ function Pokemons({ types, pokemons, pages, setPages }){
   const [sortPokemons, setSortPokemons] = useState([])
 
   useEffect(() => {
-    // console.log(pokemons)
     setSortPokemons(pokemons)
     setPages(0)
   },[pokemons]);
@@ -57,7 +56,9 @@ function Pokemons({ types, pokemons, pages, setPages }){
 
   return(
     pokemons[0]?.message ? (
-      <p>BUSCA BIEN GILI</p>
+    <div className={s.img}>
+      <img src="../img/404.gif" alt="404" height="300px" width="400px" ></img>
+    </div>
     ) : (
     <div>
       <div className={s.buttons}>
@@ -83,8 +84,8 @@ function Pokemons({ types, pokemons, pages, setPages }){
         </select>
       </div>
     <div className={s.pagination}>
-      <button type="button" onClick={previous} id={s.previous}>&laquo; previous</button>
-      <button type="button" onClick={next} id={s.next}>next &raquo;</button>
+      <button type="button" onClick={previous} id={s.previous} className="material-icons">arrow_back_ios</button>
+      <button type="button" onClick={next} id={s.next} className="material-icons">arrow_forward_ios</button>
     </div>
     <div className={s.pokemons}>
       { pokemonsPaginated.length ? (
@@ -92,6 +93,7 @@ function Pokemons({ types, pokemons, pages, setPages }){
           return <Pokemon
             key={p.id}
             id={p.id}
+            ID={p.ID !== undefined? p.ID : undefined}
             name={p.name}
             types={p.types}
             img={p.img}
@@ -99,7 +101,7 @@ function Pokemons({ types, pokemons, pages, setPages }){
             weight={p.weight}
             attack={p.attack}
             experience={p.experience}
-            ></Pokemon>
+          ></Pokemon>
         })
         )
         : (

@@ -21,15 +21,60 @@ const iconsTypes = {
   "electric": "../img/types_icon/electric.svg",
   "dark": "../img/types_icon/dark.svg",
   "fairy": "../img/types_icon/fairy.svg",
+  "shadow": "../img/types_icon/shadow.svg",
+  "unknown": "../img/types_icon/unknown.svg",
 }
 
-export default function Pokemon ({id, name, types, img, weight, height, attack, experience}){
+export default function Pokemon ({ID, id, name, types, img, weight, height, attack, experience}){
   return(
+    ID? (
     <div className={s[types?.[0].name]}>
       <div className={s.back}>
         <div className={s.header}>
           <NavLink to={`/home/${id}`}>
             <p id={s.name}>{name.toUpperCase()}</p>
+          </NavLink>
+          <div className={s.id}>
+            <img src="../img/pokeball.svg" alt="pokeball" height="30px"></img>
+            <p id={s.idnum}>{ID}</p>
+          </div>
+        </div>
+        <img src={img} alt={name} height="130px" width="130px" id={s.img}></img>
+      </div>
+      <div className={s.front}>
+        <div className={s.about}>
+          <div className={s.descriptionlarger}>
+            <p>Height
+              <p className={s.num}>{height  < 10 ? `0.${height}m` : `${height/10}m`}</p>
+            </p>
+            <p>Type
+              <div>
+                {types?.map(t=>{
+                 return <img src={iconsTypes[t.name]} alt={`icono ${t.name}`} height="30px"></img>
+                })}
+              </div>
+            </p>
+            <p>Weight
+              <p className={s.num}>{`${weight/10}Kg`}</p>
+            </p>
+          </div>
+          <div className={s.descriptionshort}>
+            <p>Attack
+              <p className={s.num}>{attack}</p>
+            </p>
+            <p>Experience
+              <p className={s.num}>{experience}</p>
+            </p> 
+          </div>
+        </div>
+      </div>
+    </div>
+    ) : (
+      <div className={s[types?.[0].name]}>
+      <div className={s.back}>
+        <div className={s.header}>
+          <NavLink to={`/home/${id}`}>
+            <p id={s.name}>{name?.toUpperCase()}</p>
           </NavLink>
           <div className={s.id}>
             <img src="../img/pokeball.svg" alt="pokeball" height="30px"></img>
@@ -42,7 +87,7 @@ export default function Pokemon ({id, name, types, img, weight, height, attack, 
         <div className={s.about}>
           <div className={s.descriptionlarger}>
             <p>Height
-              <p>{height}</p>
+              <p className={s.num}>{height  < 10 ? `0.${height}m` : `${height/10}m`}</p>
             </p>
             <p>Type
               <div>
@@ -52,19 +97,20 @@ export default function Pokemon ({id, name, types, img, weight, height, attack, 
               </div>
             </p>
             <p>Weight
-              <p>{weight}</p>
+              <p className={s.num}>{`${weight/10}Kg`}</p>
             </p>
           </div>
           <div className={s.descriptionshort}>
             <p>Attack
-              <p>{attack}</p>
+              <p className={s.num}>{attack}</p>
             </p>
             <p>Experience
-              <p>{experience}</p>
+              <p className={s.num}>{experience}</p>
             </p> 
           </div>
         </div>
       </div>
     </div>
+    )
   )
 }

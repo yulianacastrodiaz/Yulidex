@@ -58,6 +58,7 @@ router.get("/", async (req, res) => {
         })
         const pokemon = {
           id: p.id,
+          ID: p.ID,
           name: p.dataValues.name,
           types: typesDB,
           height: p.height,
