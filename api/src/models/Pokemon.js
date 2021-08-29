@@ -11,6 +11,12 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
+    ID:{
+      type: DataTypes.VIRTUAL,
+      get: function(){
+        return `${this.id[0]}${this.id[1]}${this.id[2]}${this.id[3]}`
+      }
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
