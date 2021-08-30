@@ -69,14 +69,14 @@ export function PokemonDetail({getPokemonById, pokemonDetail}){
         <div>
           <img src="../img/Pokemon Detail/height.png" alt="height" height="50px"></img>
           <p className={s.p}>Height</p>
-          <p className={s.p}>{pokemonDetail.height}</p>
-          <meter value={pokemonDetail.height} min="0" low="3" high="15" optimum="9" max="25"></meter>
+          <p className={s.p}>{`${pokemonDetail.height/10}m`}</p>
+          <meter value={pokemonDetail.height/10} min="0" low="0.5" high="3" optimum="1" max="5"></meter>
         </div>
         <div>
           <img src="../img/Pokemon Detail/weight.png" alt="weight" height="50px"></img>
           <p className={s.p}>Weight</p>
-          <p className={s.p}>{pokemonDetail.weight}</p>
-          <meter value={pokemonDetail.weight} min="0" low="30" high="120" optimum="80" max="130"></meter>
+          <p className={s.p}>{`${pokemonDetail.weight/10}Kg`}</p>
+          <meter value={pokemonDetail.weight/10} min="0" low="30" high="120" optimum="80" max="130"></meter>
         </div>
         <p className={s.p}>Types
           <div>
