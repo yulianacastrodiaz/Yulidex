@@ -9,6 +9,7 @@
  
 #gray{
   height: 89.7vh;
+  /* width: 100vh; */
 }
 
 #bg_blob{
@@ -42,6 +43,7 @@
   top: 450px;
   background-color: #fa4659;
   color: white;
+  cursor: pointer;
 }
 
 .LandingPage a{
