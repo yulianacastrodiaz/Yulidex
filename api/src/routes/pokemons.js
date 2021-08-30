@@ -120,7 +120,7 @@ router.post("/", async (req, res) => {
         weight
       });
       newPokemon.setTypes(types);
-      res.json({ msg: "Tu pokemons ha sido creado con éxito."});
+      res.json({ msg: "Tu pokemon ha sido creado con éxito."});
     }
   } catch (error) {
     res.status(404).json(error);
