@@ -28,7 +28,7 @@ const iconsTypes = {
 export default function Pokemon ({ID, id, name, types, img, weight, height, attack, experience}){
   return(
     ID? (
-    <div className={s[types?.[0].name]}>
+    <div className={s[types?.[0]?.name]}>
       <div className={s.back}>
         <div className={s.header}>
           <NavLink to={`/home/${id}`}>

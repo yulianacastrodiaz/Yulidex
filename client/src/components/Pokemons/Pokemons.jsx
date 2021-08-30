@@ -40,6 +40,7 @@ function Pokemons({ types, pokemons, pages, setPages }){
     let pokemonsSortByCreate = sortCreate(pokemons, e.target.value);
     setSortPokemons(pokemonsSortByCreate);
   }
+  
   function handleChange(e){
     let pokemons2 = sort(sortPokemons, e.target.value);
     setSortPokemons(pokemons2);

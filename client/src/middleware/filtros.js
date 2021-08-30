@@ -36,7 +36,7 @@ export function sort(state, typeOfSort){
         }  
       } 
     }
-    sortPokemons = sortPokemons.filter((ele,indi) => sortPokemons.indexOf(ele) === indi)
+    sortPokemons = sortPokemons.filter((ele, indi) => sortPokemons.indexOf(ele) === indi)
     return sortPokemons;
   } else if(typeOfSort === "Attack +"){
     attackOfPokemons = attackOfPokemons.sort((a,b) => b - a)
