@@ -1,5 +1,5 @@
-export const getPokemons = () => async(dispatch) => {
-  const response = await fetch("http://localhost:3001/pokemons");
+export const getPokemons = () => async (dispatch) => {
+  const response = await fetch("https://yulidex-db.herokuapp.com/pokemons");
   const data = await response.json();
   dispatch({
     type: "GET_POKEMONS",
@@ -7,12 +7,12 @@ export const getPokemons = () => async(dispatch) => {
   })
 };
 
-export const getPokemon = (name) => async(dispatch) => {
-  const response = await fetch(`http://localhost:3001/pokemons?name=${name}`);
-  const data = await response.json();
+export const getPokemon = (name) => async (dispatch) => {
+  const response = await fetch(`https://yulidex-db.herokuapp.com/pokemons?name=${name}`);
+  const pokemon = await response.json();
   dispatch({
     type: "GET_POKEMON",
-    pokemon: data
+    pokemon
   })
 }
 
@@ -23,8 +23,8 @@ export const setPages = (value) => {
   }
 }
 
-export const getTypes = () => async(dispatch) => {
-  const response = await fetch(`http://localhost:3001/types`);
+export const getTypes = () => async (dispatch) => {
+  const response = await fetch(`https://yulidex-db.herokuapp.com/types`);
   const types = await response.json();
   dispatch({
     type: "GET_TYPES",
@@ -32,11 +32,11 @@ export const getTypes = () => async(dispatch) => {
   })
 }
 
-export const getPokemonById = (id) => async(dispatch) => {
-  const response = await fetch (`http://localhost:3001/pokemons/${id}`);
+export const getPokemonById = (id) => async (dispatch) => {
+  const response = await fetch(`https://yulidex-db.herokuapp.com/pokemons/${id}`);
   const pokemonById = await response.json();
   dispatch({
-    type:"GET_POKEMONBYID",
+    type: "GET_POKEMONBYID",
     pokemonById
   })
 }

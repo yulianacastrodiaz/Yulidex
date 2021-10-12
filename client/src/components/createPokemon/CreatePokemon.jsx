@@ -8,12 +8,12 @@ export default function CreatePokemon(props){
   const types = useSelector((store) => store.types);
   const [form, setForm] = useState({
     name: "",
-    hp: 0,
-    attack: 0,
-    defense: 0,
-    speed: 0,
-    height: 0,
-    weight: 0,
+    hp: "",
+    attack: "",
+    defense: "",
+    speed: "",
+    height: "",
+    weight: "",
     types: [],
   });
 
@@ -35,12 +35,12 @@ export default function CreatePokemon(props){
     alert(data.msg)
     setForm({
       name: "",
-      hp: 0,
-      attack: 0,
-      defense: 0,
-      speed: 0,
-      height: 0,
-      weight: 0,
+      hp: "",
+      attack: "",
+      defense: "",
+      speed: "",
+      height: "",
+      weight: "",
       types: [],
     }) 
   }
@@ -50,6 +50,7 @@ export default function CreatePokemon(props){
     if(!input.name) error.name = "No escribiste el nombre"
     return error;
   }
+  validated(form.name)
 
   function handleChangeTypes(e){
     if(form.types.includes(e.target.value)){
@@ -91,7 +92,7 @@ export default function CreatePokemon(props){
           <div className={s.grupo}>
             <input type="text" id={s.input} name="name" value={form.name} onChange={handleChange} required></input><span className={s.barra}></span>
             <label id={s.label}>Name</label>
-            {errors.name ? <p>Falta el nombreeeee</p> : null}
+            {errors.name ? <p id={s.nombre}>Falta el nombre</p> : null}
           </div>
           <div className={s.grupo}>
             <input type="number" id={s.input} name="hp" value={form.hp} onChange={handleChange} required></input><span className={s.barra}></span>
@@ -111,11 +112,11 @@ export default function CreatePokemon(props){
           </div>
           <div className={s.grupo}>
             <input type="number" id={s.input} name="height" value={form.height} onChange={handleChange} required></input><span className={s.barra}></span>
-            <label id={s.label}>Height</label>
+            <label id={s.label}>Height(cm)</label>
           </div>
           <div className={s.grupo}>
             <input type="number" id={s.input} name="weight" value={form.weight} onChange={handleChange} required></input><span className={s.barra}></span>
-            <label id={s.label}>Weight</label>
+            <label id={s.label}>Weight(gramos)</label>
           </div>
           <div className={s.types}>
             {
