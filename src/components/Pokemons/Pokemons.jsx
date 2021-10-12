@@ -38,7 +38,11 @@ function Pokemons({ types, pokemons, pages, setPages }){
 
   function handleChangeCreate(e){
     let pokemonsSortByCreate = sortCreate(pokemons, e.target.value);
-    setSortPokemons(pokemonsSortByCreate);
+    if(pokemonsSortByCreate.msg){
+      alert(pokemonsSortByCreate.msg)
+    } else {
+      setSortPokemons(pokemonsSortByCreate);
+    }
   }
   
   function handleChange(e){
@@ -47,7 +51,7 @@ function Pokemons({ types, pokemons, pages, setPages }){
   }
 
   function handleChangeTypes(e){
-    let sortPokemonsForTypes = sortTypes(sortPokemons, e.target.value);
+    let sortPokemonsForTypes = sortTypes(pokemons, e.target.value,);
     if(sortPokemonsForTypes.length){
       setSortPokemons(sortPokemonsForTypes)
     } else {
@@ -58,7 +62,7 @@ function Pokemons({ types, pokemons, pages, setPages }){
   return(
     pokemons[0]?.message ? (
     <div className={s.img}>
-      <img src="../img/404.gif" alt="404" height="300px" width="400px" ></img>
+      <img src="../img/noresult.gif" alt="noresult" height="400px" width="600px" ></img>
     </div>
     ) : (
     <div>
@@ -67,7 +71,7 @@ function Pokemons({ types, pokemons, pages, setPages }){
           <option value="Types">Types</option>
           {
             types.map(t => {
-             return <option value={t.name}>{t.name}</option>
+             return <option key={t.name} value={t.name}>{t.name}</option>
             })
           }
         </select>
@@ -92,7 +96,7 @@ function Pokemons({ types, pokemons, pages, setPages }){
       { pokemonsPaginated.length ? (
         pokemonsPaginated.map((p) => {
           return <Pokemon
-            key={p.id}
+            key={p.id + p.name}
             id={p.id}
             ID={p.ID !== undefined? p.ID : undefined}
             name={p.name}

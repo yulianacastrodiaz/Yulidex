@@ -11,7 +11,7 @@ export function Home(props){
 
   return(
     <div className={s.home}>
-        <Pokemons></Pokemons>
+        <Pokemons ></Pokemons>
     </div>
   )
 }

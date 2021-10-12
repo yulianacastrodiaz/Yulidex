@@ -6,6 +6,10 @@
 }
 
 
+#nombre{
+  color: red;
+}
+
 .create{
   background: linear-gradient(rgb(30, 178, 178), rgb(45, 188, 183), rgb(57, 198, 188), rgb(68, 208, 192), rgb(78, 218, 197));
   height: 150vh;

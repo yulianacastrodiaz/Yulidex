@@ -52,8 +52,8 @@ export function NavBarout(props){
       <div className={s.ul}>
         <li><NavLink to="/home">Home</NavLink></li>
         <li><NavLink to="/create">Create</NavLink></li>
-        <li><NavLink to="/types">Types</NavLink></li>
-        <NavLink to="/logout"><p className="material-icons md-light" id={s.logout}>logout</p></NavLink>
+        {/* <li><NavLink to="/types">Types</NavLink></li>
+        <NavLink to="/logout"><p className="material-icons md-light" id={s.logout}>logout</p></NavLink> */}
       </div>
     </div>
   )

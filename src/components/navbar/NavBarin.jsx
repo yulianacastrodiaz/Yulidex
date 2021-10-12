@@ -14,8 +14,8 @@ export function NavBarin(){
       <div className={s.ul}>
         <li><NavLink to="/home">Home</NavLink></li>
         <li><NavLink to="/create">Create</NavLink></li>
-        <li><NavLink to="/types">Types</NavLink></li>
-        <NavLink to="/login"><span className="material-icons md-light" id={s.login}>login</span></NavLink>
+        {/* <li><NavLink to="/types">Types</NavLink></li>
+        <NavLink to="/login"><span className="material-icons md-light" id={s.login}>login</span></NavLink> */}
       </div>
     </div>
   )

@@ -25,10 +25,10 @@ const iconsTypes = {
   "unknown": "../img/types_icon/unknown.svg",
 }
 
-export default function Pokemon ({ID, id, name, types, img, weight, height, attack, experience}){
+export default function Pokemon ({ID, id, name, types, img, weight, height, attack, experience,}){
   return(
-    ID? (
-    <div className={s[types?.[0]?.name]}>
+    ID && !img && !experience? (
+    <div className={s[types?.[0]?.name]} >
       <div className={s.back}>
         <div className={s.header}>
           <NavLink to={`/home/${id}`}>
@@ -39,32 +39,32 @@ export default function Pokemon ({ID, id, name, types, img, weight, height, atta
             <p id={s.idnum}>{ID}</p>
           </div>
         </div>
-        <img src={img} alt={name} height="130px" width="130px" id={s.img}></img>
+        <img className={s.dbimg} src="../img/monster.svg" alt="gatito" height="130px" width="130px" id={s.ID}></img>
       </div>
       <div className={s.front}>
         <div className={s.about}>
           <div className={s.descriptionlarger}>
-            <p>Height
-              <p className={s.num}>{height  < 10 ? `0.${height}m` : `${height/10}m`}</p>
-            </p>
-            <p>Type
+            <div className={s.p}>Height
+              <p className={s.num}>{height  < 10 ? `0.${height}m` : `${height/100}m`}</p>
+            </div>
+            <div className={s.p}>Type
               <div>
                 {types?.map(t=>{
                  return <img src={iconsTypes[t.name]} alt={`icono ${t.name}`} height="30px"></img>
                 })}
               </div>
-            </p>
-            <p>Weight
-              <p className={s.num}>{`${weight/10}Kg`}</p>
-            </p>
+            </div>
+            <div className={s.p}>Weight
+              <p className={s.num}>{`${weight/1000}Kg`}</p>
+            </div>
           </div>
           <div className={s.descriptionshort}>
-            <p>Attack
+            <div className={s.p}>Attack
               <p className={s.num}>{attack}</p>
-            </p>
-            <p>Experience
-              <p className={s.num}>{experience}</p>
-            </p> 
+            </div>
+            <div className={s.p}>Experience
+              <p className={s.num}>0</p>
+            </div> 
           </div>
         </div>
       </div>
@@ -86,27 +86,27 @@ export default function Pokemon ({ID, id, name, types, img, weight, height, atta
       <div className={s.front}>
         <div className={s.about}>
           <div className={s.descriptionlarger}>
-            <p>Height
+            <div className={s.p}>Height
               <p className={s.num}>{height  < 10 ? `0.${height}m` : `${height/10}m`}</p>
-            </p>
-            <p>Type
+            </div>
+            <div  className={s.p}>Type
               <div>
                 {types?.map(t=>{
-                 return <img src={iconsTypes[t.name]} alt={`icono ${t.name}`} height="30px"></img>
+                 return <img src={iconsTypes[t.name]} alt={`icono ${t.name}`} height="30px" key={t.name}></img>
                 })}
               </div>
-            </p>
-            <p>Weight
+            </div>
+            <div  className={s.p}>Weight
               <p className={s.num}>{`${weight/10}Kg`}</p>
-            </p>
+            </div>
           </div>
           <div className={s.descriptionshort}>
-            <p>Attack
+            <div  className={s.p}>Attack
               <p className={s.num}>{attack}</p>
-            </p>
-            <p>Experience
+            </div>
+            <div  className={s.p}>Experience
               <p className={s.num}>{experience}</p>
-            </p> 
+            </div> 
           </div>
         </div>
       </div>
