@@ -2,7 +2,7 @@
     <img src='https://static.wixstatic.com/media/85087f_0d84cbeaeb824fca8f7ff18d7c9eaafd~mv2.png/v1/fill/w_160,h_30,al_c,q_85,usm_0.66_1.00_0.01/Logo_completo_Color_1PNG.webp' </img>
 </p>
 
-# Individual Project - Henry Pokemon
+# Individual Project - YuliDex - Henry Pokemon
 
 <p align="left">
   <img height="150" src="./pokemon.png" />
@@ -16,40 +16,31 @@
 - Aprender y practicar el workflow de GIT.
 - Usar y practicar testing.
 
-## Comenzando
+## HomePage
 
- 1. Forkear el repositorio para tener una copia del mismo en sus cuentas
- 2. Clonar el repositorio en sus computadoras para comenzar a trabajar
+Así luce la página de inicio.
 
-Tendrán un `boilerplate` con la estructura general tanto del servidor como de cliente.
+![homepage](./public/img/homepage.png)
 
-__IMPORTANTE:__ Es necesario contar minimamente con la última versión estable de Node y NPM. Asegurarse de contar con ella para poder instalar correctamente las dependecias necesarias para correr el proyecto.
+Para poder entrar al proyecto tenemos dos opciones, la primera es usarlo desde el deploy y la segunda es usarlo de manera local en tu compu.
+**Nota:** para una mejor experiencia recomiendo verlo desde un computador ya que no es responsive.
 
-Actualmente las versiónes necesarias son:
+## Deploy
 
- * __Node__: 12.18.3 o mayor
- * __NPM__: 6.14.16 o mayor
+Puedes ingregar al proyecto con esta url [YuliDex](https://condescending-yalow-c98cf6.netlify.app/)
 
-Para verificar que versión tienen instalada:
+## Local
 
-> node -v
->
-> npm -v
+Para correr la aplicación de forma local debes seguir los siguientes pasos:
 
-## BoilerPlate
+- Descargar el códgio del repositorio; en la parte superior del repo encontrarás un botón que dice código/code dependiendo del idioma, le das click y se despliegan unas opciones, selecionamos Descargar ZIP/Download ZIP.
 
-El boilerplate cuenta con dos carpetas: `api` y `client`. En estas carpetas estará el código del back-end y el front-end respectivamente.
+![Code](./public/img/downloadcode.png)
 
-En `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
+- Descomprimir la carpeta y abrir con tu editor de código favorito.
+- Hacer `npm install` en la terminal. Esto nos va a descargar todos los paquetes necesarios para nuestra aplicación.
+- Hacer `npm start`. Esto nos llevará al navegador donde podremos ver la aplicación.
 
-```
-DB_USER=usuariodepostgres
-DB_PASSWORD=passwordDePostgres
-DB_HOST=localhost
-```
+Recuerda estar posicionado sobre la carpeta del proyecto, en este caso debe terminar en /Yulidex
 
-Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credenciales para conectarte a postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
-
-Adicionalmente será necesario que creen desde psql una base de datos llamada `pokemon`
-
-El contenido de `client` fue creado usando: Create React App.
+![carpeta](./public/img/Carpeta.png)
