@@ -27,7 +27,7 @@ Para poder entrar al proyecto tenemos dos opciones, la primera es usarlo desde e
 
 ## Deploy
 
-Puedes ingregar al proyecto con esta url [YuliDex](https://condescending-yalow-c98cf6.netlify.app/)
+Puedes ingresar al proyecto con esta url [YuliDex](https://condescending-yalow-c98cf6.netlify.app/)
 
 ## Local
 
